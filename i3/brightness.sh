@@ -29,4 +29,4 @@ brightness () {
 brightness $1
 
 # Send a notification
-notify-send "Brightness" -i $backlight_icon "$(~/.config/i3/bar $state $backlight_min $backlight_max)" -h string:x-canonical-private-synchronous:anything
+notify-send "Brightness" -i $backlight_icon "$(~/.config/i3/bar $state $backlight_min $backlight_max )" -h string:x-canonical-private-synchronous:anything

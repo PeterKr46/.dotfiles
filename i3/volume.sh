@@ -8,6 +8,9 @@
 # Run "amixer scontrols" for a list
 target_control="Master"
 
+# Percent to raise/lower each time
+volume_step=5
+
 # I picked some re-installed icons for my notifications
 icon_path=/usr/share/icons/HighContrast/256x256/status
 
@@ -23,9 +26,9 @@ volume () {
         if   [ $1 = mute ]; then
             amixer -q sset "$target_control" toggle
         elif [ $1 = up   ]; then
-            amixer -q sset "$target_control" 5%+
+            amixer -q sset "$target_control" $volume_step%+
         elif [ $1 = down ]; then
-            amixer -q sset "$target_control" 5%-
+            amixer -q sset "$target_control" $volume_step%-
         fi
     fi
     state=$(amixer sget "$target_control" | grep -Po "\[\K\d+" | head -n 1)
