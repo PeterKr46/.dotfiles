@@ -12,7 +12,7 @@ target_control="Master"
 volume_step=5
 
 # I picked some re-installed icons for my notifications
-icon_path=/usr/share/icons/HighContrast/256x256/status
+icon_path=/usr/share/icons/HighContrast/48x48/status
 
 icon_high=$icon_path/audio-volume-high.png
 icon_medium=$icon_path/audio-volume-medium.png

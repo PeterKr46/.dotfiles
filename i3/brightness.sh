@@ -10,7 +10,7 @@ backlight_max=900
 backlight_step=25
 
 # I picked a pre-installed icon for my notifications.
-backlight_icon=/usr/share/icons/HighContrast/256x256/status/display-brightness.png
+backlight_icon=/usr/share/icons/HighContrast/48x48/status/display-brightness.png
 
 # "back-end" function
 brightness () {
