@@ -45,7 +45,7 @@ notify () {
         muted="barely"
     fi
     
-    notify-send "Volume $state%" -i $icon "$(~/.config/i3/bar $state 0 100 37 $muted)" -h string:x-canonical-private-synchronous:anything
+    notify-send "Volume $state%" -i $icon "$(~/.config/i3/bar $state 0 100 35 $muted)" -h string:x-canonical-private-synchronous:audio
 }
 
 volume $1
