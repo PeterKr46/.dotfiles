@@ -30,7 +30,7 @@
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     #geometry = "300x5-30+20"
-    geometry = "320x5-30+30"
+    geometry = "344x5-30+30"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -55,10 +55,10 @@
     separator_height = 3
 
     # Padding between text and separator.
-    padding = 12
+    padding = 24
 
     # Horizontal padding.
-    horizontal_padding = 12
+    horizontal_padding = 24
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -87,7 +87,7 @@
 
     ### Text ###
 
-    font = Ubuntu Mono 9
+    font = Ubuntu 8
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -176,7 +176,7 @@
     max_icon_size = 86
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/HighContrast/48x48/status/:/usr/share/icons/HighContrast/48x48/devices/
 
     ### History ###
 
@@ -295,6 +295,12 @@
     background="#191414"
     frame_color="#1DB954"
     foreground="#ddd"
+[element]
+    desktop_entry = Element
+    new_icon = "/usr/share/icons/hicolor/48x48/apps/element-desktop.png"
+    background="#00c087"
+    frame_color="#00c087"
+    foreground="#fff"
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
