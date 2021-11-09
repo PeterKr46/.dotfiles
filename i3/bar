@@ -13,7 +13,7 @@ fi
 [[ -z $4 ]] || width=$4
 
 # Two "reduced" styles of bar 
-[[ "$5" == "less" ]] && bar="░▁"
+[[ "$5" == "less" ]] && bar="▒░"
 [[ "$5" == "barely" ]] && bar="░ "
 
 # Compute number of characters to actually fill

@@ -42,10 +42,10 @@ notify () {
     [[ $state -gt 70 ]] && icon=$icon_high
     if [[ -z $(amixer sget "$target_control" | grep "\[on\]") ]]; then
         icon=$icon_muted
-        muted="barely"
+        muted="less"
     fi
     
-    notify-send "Volume $state%" -i $icon "$(~/.config/i3/bar $state 0 100 35 $muted)" -h string:x-canonical-private-synchronous:audio
+    notify-send "Volume" -i $icon "<tt>$(~/.config/i3/bar $state 0 100 35 $muted)</tt>" -h string:x-canonical-private-synchronous:audio
 }
 
 volume $1
