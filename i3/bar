@@ -3,6 +3,7 @@
 # Width of the bar in characters
 width=35
 bar="█░"
+#bar="  "
 
 if [[ -z $1 || -z $2 || -z $3 ]]; then
     echo "Usage: bar <state> <min> <max> [chars] [transparent?]"
@@ -19,7 +20,9 @@ fi
 # Compute number of characters to actually fill
 filled_flt=$(printf "%.2f" $(echo "scale = 2; ($1-$2)/($3-$2)*$width" | bc))
 filled=$(echo $filled_flt | grep -Po "([0-9]+)" | head -n 1)
-
+#printf "<span background='#fff'>"
 [[ $(($1-$2)) -gt 0 ]]        && printf "%0.s${bar:0:1}" $(seq 1 $filled)
+#printf "</span><span background='#333'>"
 [[ $((width-filled)) -gt 0 ]] && printf "%0.s${bar:1:1}" $(seq $((filled+1)) $((width)))
+#printf "</span>▏"
 printf "▏"
