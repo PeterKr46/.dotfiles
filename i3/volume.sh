@@ -21,22 +21,19 @@ icon_muted=$icon_path/audio-volume-muted.png
 
 top_text="Volume"
 
+mediakey="/home/$USER/.config/i3/mediakey.sh"
 playback_status() {
-    for player in $(playerctl -l); do
-        if [ $(playerctl status -p $player) = "Playing" ]; then
-            track_title=$(playerctl -p $player metadata xesam:title )
-            track_artist=$(playerctl -p $player metadata xesam:artist)
-            [[ -z $track_artist ]] && track_artist="Unknown"
-            track_album=$(playerctl -p $player metadata xesam:album)
-            [[ -z $track_album ]] && track_album="Unknown"
-           
-            origin="$track_artist  –  $track_album"
+    if [ $($mediakey "status") = "Playing" ]; then
+        track_title=$($mediakey metadata xesam:title)
+        track_artist=$($mediakey metadata xesam:artist)
+        track_album=$($mediakey metadata xesam:album)
+       
+        origin="${track_artist:=Unknown}  –  ${track_album:=Unknown}"
 
-            [[ ! -z ${origin:35:1} ]] && origin="${origin:0:32}..."
-            [[ ! -z ${track_title:35:1} ]] && track_title="${track_title:0:32}..."
-            [[ ! -z $track_title ]] && extra_text="\n\n<tt><b>$track_title</b>\n$origin</tt>"
-       fi
-   done
+        [[ ! -z ${origin:35:1} ]] && origin="${origin:0:32}..."
+        [[ ! -z ${track_title:35:1} ]] && track_title="${track_title:0:32}..."
+        [[ ! -z $track_title ]] && extra_text="\n\n<tt><b>$track_title</b>\n$origin</tt>"
+   fi
 }
 
 # "back-end" function

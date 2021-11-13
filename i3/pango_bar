@@ -15,7 +15,7 @@ text="$(echo "100*($1-$2)/($3-$2)" | bc)%"
 
 # Optional parameter bar width
 [[ -z $4 ]] || width=$4
-[[ -z $5 ]] || text=$(printf "%s" $5 | tr '\n' ' ')
+[[ -z $5 ]] || text=$5 #"$(printf "%s" $5 | tr '\n' ' ')"
 [[ -z $6 ]] || filled_color=$6
 [[ -z $7 ]] || empty_color=$7
 
@@ -29,11 +29,11 @@ textlen=${#text}
 padding_size=$(echo "$width/2 - $textlen/2" | bc)
 padding=$(printf "%0.s " $(seq 1 $padding_size))
 
-bar=$(printf "%s%s%s\n" "$padding" $text "$padding")
+bar=$(printf "%s%s%s\n" "$padding" "$text" "$padding")
 
 
 printf "<span background='$filled_color' foreground='$empty_color'>"
 [[ $(($1-$2)) -gt 0 ]]        && printf "%s" "${bar:0:filled}"
 printf "</span><span background='$empty_color' foreground='$filled_color'>"
 [[ $((width-filled)) -gt 0 ]] && printf "%s" "${bar:filled:-1}"
-printf "</span>▏"
+printf "</span><span foreground='$filled_color'>▏</span>"

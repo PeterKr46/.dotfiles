@@ -1,0 +1,9 @@
+#!/bin/bash
+
+storage=$(df -h /home/ --output=pcent,avail | tail -1)
+storage_used=$(echo $storage | cut -d ' ' -f1)
+storage_avail=$(echo $storage | cut -d ' ' -f2)
+
+color="#$(printf "%02x%02x00" $(echo "${storage_used::-1}*255/100" | bc) $(echo "(100-${storage_used::-1})*255/100" | bc))"
+
+printf "<tt>%s</tt>\n" "$(/home/$USER/.config/i3/pango_bar ${storage_used::-1} 0 100 9 $storage_avail $color "#113")"

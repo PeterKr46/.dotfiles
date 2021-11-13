@@ -1,0 +1,20 @@
+#!/bin/bash
+
+fgcolor="#aaa"
+bgcolor="#333"
+if [ $(~/.config/i3/mediakey.sh status) == "Playing" ]; then
+    bgcolor="#1db954"
+    fgcolor="#fff"
+    playback="▶"
+fi
+
+status="$(~/.config/i3/mediakey.sh metadata --format "{{ title }} ‒ {{ artist }}")"
+[[ ${#status} -gt 48 ]] && status="${status::45}..."
+
+printf '<span bgcolor="%s" fgcolor="%s"> %s %s </span>\n'  "$bgcolor" "$fgcolor" "${playback:=⏸}" "${status:=No Playback}" 
+    
+if [ $1 == "3" ]; then 
+    ~/.config/i3/mediakey.sh &
+elif [ $1 == "1" ]; then
+    ~/.config/i3/mediakey.sh play-pause
+fi
