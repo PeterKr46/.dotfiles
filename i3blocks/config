@@ -33,11 +33,12 @@ markup=none
 # This displays "ARTIST - SONG" if a music is playing.
 # Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
 [playback-status]
-command=/home/$USER/.config/i3blocks/mediaplayer $BLOCK_BUTTON &
+command=/home/$USER/.config/i3blocks/mediaplayer "${BLOCK_BUTTON}"
 interval=1
-separator=false
-#format=json
+separator=true
 markup=pango
+separator_block_width=24
+
 # Volume indicator
 #
 # The first parameter sets the step (and units to display)
@@ -75,13 +76,6 @@ markup=pango
 #instance=/mnt/data
 #interval=30
 
-[mydisk]
-full_text=Storage (Error)
-command=/home/$USER/.config/i3blocks/storage &
-interval=60
-markup=pango
-separator=false
-
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
@@ -92,36 +86,55 @@ color=#1de954
 interval=10
 separator=false
 min_width=100
+separator_block_width=0
 
 [wifi]
-#instance=wlp3s0
-interval=10
-separator=false
-min_width=100
-
-[bandwidth]
-#instance=eth0
+command=/home/$USER/.config/i3blocks/network &
 interval=5
-min_width=100
+markup=pango
+separator_block_width=24
+
+#[wifi]
+##instance=wlp3s0
+#interval=10
+#separator=false
+#min_width=100
+#
+#[bandwidth]
+##instance=eth0
+#interval=5
+#min_width=100
+#separator=false
+
+[mydisk]
+label=DISK
+full_text=Storage (Error)
+command=/home/$USER/.config/i3blocks/storage &
+interval=60
+markup=pango
+separator=true
+separator_block_width=24
 
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage]
-label=CPU
-interval=10
-separator=false
+#[cpu_usage]
+#label=CPU
+#interval=10
+#separator=false
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
 [battery]
+label=BAT
 command=/home/$USER/.config/i3blocks/battery &
 interval=30
 full_text=Battery
 markup=pango
 separator=false
+separator_block_width=4
 
 #[load_average]
 #interval=10
@@ -130,8 +143,14 @@ separator=false
 # Date Time
 #
 [time]
-command=date '+%H:%M:%S %m.%d.%y'
+command=printf '<span weight="bold" bgcolor="#111" size="large"> %s </span><sup><span fgcolor="#ccc">%s</span></sup>\n' $(date '+%H:%M:%S %m.%d.%y')
+markup=pango
 interval=1
+
+[dnd]
+command=/home/$USER/.config/i3blocks/donotdisturb "${BLOCK_BUTTON}" &
+interval=30
+markup=pango
 
 # OpenVPN support
 #

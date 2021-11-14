@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[[ -n $1 ]] && dunstctl set-paused toggle
+
+text='<span fgcolor="#68bc1e" size="small" ><tt> dunst </tt></span>'
+[[ $(dunstctl is-paused) == *"true"* ]] && text='<span fgcolor="#e25434" weight="ultrabold" size="small"><tt> dunst </tt></span>' #⏻ 
+
+echo '<span size="large">'${text}'</span>'
