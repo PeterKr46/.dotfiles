@@ -18,6 +18,9 @@ fi
 
 status="$(~/.config/i3/mediakey.sh metadata --format "{{ title }} ‒ {{ artist }}")"
 
+# Apparently, i3blocks or pango do not play nicely with &
+status=${status/&/&amp;}
+
 if [ ${#status} -gt $width ]; then
     ms=$(echo "(4*$(date +%s)) % (${#status}-$width+7)-4" | bc)
     [[ $ms -lt 0 ]] && ms=0 
@@ -25,5 +28,5 @@ if [ ${#status} -gt $width ]; then
     status="${status:ms:width}"
 fi
 
-printf '<span fgcolor="%s">%s</span> <span weight="600" font_family="Mono" bgcolor="%s" fgcolor="%s">▏%s▕</span>\n' $fgcolor "($(playerctl -l | wc -l))" "$bgcolor" "$fgcolor"  "${status:=No Playback}" 
+printf '<span fgcolor="%s">%s</span> <span weight="600" font_family="Mono" bgcolor="%s" fgcolor="%s">▏%s▕</span>\n' $fgcolor "($(playerctl -ls | wc -l))" "$bgcolor" "$fgcolor"  "${status:=No Playback}" 
 
