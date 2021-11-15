@@ -26,7 +26,7 @@
 # Each block command defaults to the script name to avoid boilerplate.
 command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
-markup=none
+markup=pango
 
 # Generic media player support
 #
@@ -36,7 +36,6 @@ markup=none
 command=/home/$USER/.config/i3blocks/mediaplayer "${BLOCK_BUTTON}"
 interval=1
 separator=true
-markup=pango
 separator_block_width=24
 
 # Volume indicator
@@ -91,7 +90,6 @@ separator_block_width=0
 [wifi]
 command=/home/$USER/.config/i3blocks/network &
 interval=5
-markup=pango
 separator_block_width=24
 
 #[wifi]
@@ -111,7 +109,6 @@ label=DISK
 full_text=Storage (Error)
 command=/home/$USER/.config/i3blocks/storage &
 interval=60
-markup=pango
 separator=true
 separator_block_width=24
 
@@ -132,7 +129,6 @@ label=BAT
 command=/home/$USER/.config/i3blocks/battery &
 interval=30
 full_text=Battery
-markup=pango
 separator=false
 separator_block_width=4
 
@@ -144,13 +140,11 @@ separator_block_width=4
 #
 [time]
 command=printf '<span weight="bold" bgcolor="#111" size="large"> %s </span><sup><span fgcolor="#ccc">%s</span></sup>\n' $(date '+%H:%M:%S %m.%d.%y')
-markup=pango
 interval=1
 
 [dnd]
 command=/home/$USER/.config/i3blocks/donotdisturb "${BLOCK_BUTTON}" &
 interval=30
-markup=pango
 
 # OpenVPN support
 #
