@@ -7,6 +7,11 @@ remaining_time=$(acpi | grep -Po "[0-9].\:[0-9].\:")
 
 color="#$(printf "%02x%02x" $(echo "(100-$percentage)*240/100" | bc) $(echo "$percentage*255/100" | bc))00"
 
+color="#48AA54"
+[[ $percentage -lt 80 ]] && color="#3A7F85"
+[[ $percentage -lt 50 ]] && color="#DB995D"
+[[ $percentage -lt 30 ]] && color="#BB3D37"
+
 [[ $(acpi) == *"Discharging"* && 9 -gt $percentage ]] && notify-send "Battery Critical" '<span weight="heavy" size="x-large" variant="smallcaps">Around '${remaining_time::-1}' remaining!</span>' -t 60000 -u critical -i battery-caution
 #[[ $(acpi) == *"Discharging"* && 9 -gt $percentage ]] && i3-nagbar -m "Battery critical!" &
 [[ $(acpi) == *"Charging"* ]] && text="❯❯❯ $percentage% ❯❯❯" || text="$percentage% ${remaining_time::-1}"
