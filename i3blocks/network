@@ -1,9 +1,0 @@
-#!/bin/bash
-
-ssid=$(nmcli connection show --active | awk 'END {print $1}' )
-if [ ! -z $ssid ]; then
-    quality=$(cat /proc/net/wireless | tail -1 | awk 'END {print $3}')
-    echo '<span fgcolor="#6f6">('$ssid ${quality::-1}'%)</span>'
-else
-   echo '<span fgcolor="#f33">No WIFI</span>' 
-fi

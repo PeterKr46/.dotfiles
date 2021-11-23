@@ -5,15 +5,15 @@ percentage=${percentage::-1}
 
 remaining_time=$(acpi | grep -Po "[0-9].\:[0-9].\:")
 
-color="#$(printf "%02x%02x" $(echo "(100-$percentage)*240/100" | bc) $(echo "$percentage*255/100" | bc))00"
-
+bgcolor="#364D38"
 color="#48AA54"
-[[ $percentage -lt 80 ]] && color="#3A7F85"
-[[ $percentage -lt 50 ]] && color="#DB995D"
-[[ $percentage -lt 30 ]] && color="#BB3D37"
+if [[ $percentage -lt 80 ]]; then color="#3A7F85"; bgcolor="#243233"; fi
+if [[ $percentage -lt 50 ]]; then color="#DB995D"; bgcolor="#332B24"; fi
+if [[ $percentage -lt 30 ]]; then color="#BB3D37"; bgcolor="#332424"; fi
+
 
 [[ $(acpi) == *"Discharging"* && 9 -gt $percentage ]] && notify-send "Battery Critical" '<span weight="heavy" size="x-large" variant="smallcaps">Around '${remaining_time::-1}' remaining!</span>' -t 60000 -u critical -i battery-caution
 #[[ $(acpi) == *"Discharging"* && 9 -gt $percentage ]] && i3-nagbar -m "Battery critical!" &
 [[ $(acpi) == *"Charging"* ]] && text="❯❯❯ $percentage% ❯❯❯" || text="$percentage% ${remaining_time::-1}"
 
-printf "<tt>%s%s</tt>\n" "$(/home/$USER/.config/i3/pango_bar $percentage 0 100 19 "${text}" $color "#333")"
+printf "<span background='$bgcolor' fgcolor='#ccc'><tt>  BAT %s%s</tt></span>\n" "$(/home/$USER/.config/i3/pango_bar $percentage 0 100 19 "${text}" $color "$bgcolor")"

@@ -19,6 +19,7 @@ font pango:UbuntuMono Bold 11
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -30,7 +31,7 @@ font pango:UbuntuMono Bold 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -136,6 +137,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+l exec i3lock -i /home/peter/nextcloud/Pictures/Krita-Export/sleepykitty_cropped_scaled.png
 bindsym ctrl+$mod+l exec /home/peter/.config/i3/lock.sh
+
+bindsym $mod+period exec /home/peter/.config/emoji-picker/picker.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

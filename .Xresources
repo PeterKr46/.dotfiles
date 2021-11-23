@@ -1,0 +1,35 @@
+xterm*background: #1F1D1D
+xterm*foreground: #EDE0A5
+xterm*faceName: Ubuntu Mono:size=12
+! xterm*faceSize: 12
+
+! Tango color palette
+! xterm*background:         #2e3436
+! xterm*foreground:         #eeeeec
+xterm*colorUL:          #8ae234
+xterm*underlineColor:   #92659a
+! - Aluminium -
+xterm*color8:           #2e3436
+xterm*color0:           #888A85
+! - Scariet Red -
+xterm*color9:           #cc0000
+xterm*color1:           #ef2929
+! - Chameleon -
+xterm*color10:           #4e9a06
+xterm*color2:          #8ae234
+! - Butter -
+xterm*color11:           #edd400
+xterm*color3:          #fce94f
+! - Sky Blue -
+xterm*color12:           #3465a4
+xterm*color4:          #729fcf
+! - Plum -
+xterm*color13:           #92659a
+xterm*color5:          #c19fbe
+! - Cyan -
+xterm*color14:           #07c7ca
+xterm*color6:          #63e9e9
+! - Aluminium 2 -
+xterm*color15:           #d3d7cf
+xterm*color7:          #eeeeec
+xterm*selectToClipboard: true

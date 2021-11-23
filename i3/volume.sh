@@ -36,6 +36,15 @@ playback_status() {
    fi
 }
 
+identify_sink () {
+    # Currently uses pulseaudio-specific commands, sry :c
+    if [[ -x "$(command -v pacmd)" ]]; then
+        active_sink=$(pacmd list-sinks | grep active | awk '{ print $3 }')
+        [[ $active_sink = *"speaker"* ]] && top_text="Volume (Speaker)"
+        [[ $active_sink = *"headphones"* ]] && top_text="Volume (Headphones)"
+    fi
+}
+
 # "back-end" function
 volume () {
     if [ ! -z $1 ]; then 
@@ -68,4 +77,5 @@ notify () {
 
 volume $1
 playback_status
+identify_sink
 notify

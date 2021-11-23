@@ -36,61 +36,12 @@ markup=pango
 command=/home/$USER/.config/i3blocks/mediaplayer "${BLOCK_BUTTON}"
 interval=1
 separator=true
-separator_block_width=24
-
-# Volume indicator
-#
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
-#[volume]
-#label=VOL
-#label=♪
-#instance=Master
-##instance=PCM
-#interval=1
-#signal=10
-
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
-#[memory]
-#label=MEM
-#separator=false
-#interval=30
-#
-#[memory]
-#label=SWAP
-#instance=swap
-#separator=false
-#interval=30
-
-# Disk usage
-#
-# The directory defaults to $HOME if the instance is not specified.
-# The script may be called with a optional argument to set the alert
-# (defaults to 10 for 10%).
-#[disk]
-#label=Free
-#instance=/mnt/data
-#interval=30
-
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#instance=wlan0
-color=#1de954
-interval=10
-separator=false
-min_width=100
 separator_block_width=0
 
 [wifi]
-command=/home/$USER/.config/i3blocks/network &
+command=/home/$USER/.config/i3blocks/wifi "${BLOCK_BUTTON}" &
 interval=5
-separator_block_width=24
+separator_block_width=0
 
 #[wifi]
 ##instance=wlp3s0
@@ -105,32 +56,21 @@ separator_block_width=24
 #separator=false
 
 [mydisk]
-label=DISK
 full_text=Storage (Error)
 command=/home/$USER/.config/i3blocks/storage &
 interval=60
-separator=true
-separator_block_width=24
-
-# CPU usage
-#
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[cpu_usage]
-#label=CPU
-#interval=10
-#separator=false
+separator=false
+separator_block_width=0
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT
 command=/home/$USER/.config/i3blocks/battery &
 interval=30
 full_text=Battery
 separator=false
-separator_block_width=4
+separator_block_width=0
 
 #[load_average]
 #interval=10
@@ -139,8 +79,10 @@ separator_block_width=4
 # Date Time
 #
 [time]
-command=printf '<span weight="bold" bgcolor="#111" size="large"> %s </span><sup><span fgcolor="#ccc">%s</span></sup>\n' $(date '+%H:%M:%S %m.%d.%y')
+command=printf '<span bgcolor="#223"><span weight="bold" size="large">   %s</span> <sup><span fgcolor="#ccc">%s</span></sup>  </span>\n' $(date '+%H:%M:%S %m.%d.%y')
 interval=1
+separator=false
+separator_block_width=0
 
 [dnd]
 command=/home/$USER/.config/i3blocks/donotdisturb "${BLOCK_BUTTON}" &
