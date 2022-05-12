@@ -6,7 +6,7 @@ configuration {
 	font: "Ubuntu Mono Bold 10";
 /*	bw: 1;*/
 /*	location: 0;*/
-	padding: 24;
+/*	        padding: 24;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
@@ -19,14 +19,14 @@ configuration {
 /*	run-shell-command: "{terminal} -e {cmd}";*/
 /*	window-command: "wmctrl -i -R {window}";*/
 /*	window-match-fields: "all";*/
-	icon-theme: "hicolor";
+/*	icon-theme: "hicolor";*/
 /*	drun-match-fields: "name,generic,exec,categories";*/
 /*	drun-show-actions: false;*/
 /*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
 	disable-history: false;
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/
-/*	sorting-method: ;*/
+/*	sorting-method: "fzf";*/
 	case-sensitive: false;
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
@@ -38,10 +38,10 @@ configuration {
 	matching: "fuzzy";
 /*	tokenize: true;*/
 /*	m: "-5";*/
-	line-margin: 2;
-	line-padding: 2;
+/*	        line-margin: 2;*/
+/*          line-padding: 2;*/
 /*	filter: ;*/
-	separator-style: "none";
+/*	        separator-style: "none";*/
 /*	hide-scrollbar: false;*/
 /*	fullscreen: false;*/
 /*	fake-transparency: false;*/
@@ -54,10 +54,10 @@ configuration {
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
 /*	theme: "~/.config/rofi/themes/flat-orange.rasi; */
-	color-normal: "#191414, #ccc, #1c1c1c, #e35417, #191414";
+/*	color-normal: "#191414, #ccc, #1c1c1c, #e35417, #191414";*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
-	color-window: "#191414, #191414, #e35417";
+/*	color-window: "#191414, #191414, #e35417";*/
 	max-history-size: 25;
 /*	combi-hide-mode-prefix: false;*/
 /*	matching-negate-char: '-' /* unsupported */;*/

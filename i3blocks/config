@@ -55,12 +55,19 @@ separator_block_width=0
 #min_width=100
 #separator=false
 
-[mydisk]
-full_text=Storage (Error)
-command=/home/$USER/.config/i3blocks/storage &
-interval=60
+[myram]
+full_text=RAM (Error)
+command=/home/$USER/.config/i3blocks/memory &
+interval=20
 separator=false
 separator_block_width=0
+
+#[mydisk]
+#full_text=Storage (Error)
+#command=/home/$USER/.config/i3blocks/storage &
+#interval=60
+#separator=false
+#separator_block_width=0
 
 # Battery indicator
 #

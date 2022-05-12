@@ -42,9 +42,11 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop -dmenu="rofi -dmenu -i -p Launch -show-icons"
+bindsym $mod+d exec i3-dmenu-desktop -dmenu="rofi -dmenu -i -p Launch -sorting-method 'fzf' -sort"
 #bindsym $mod+d exec --no-startup-id rofi -show drun -i -p Launch -show-icons 
-bindsym $mod+Tab exec --no-startup-id rofi -show window -fake-transparency -lines 10
+bindsym $mod+Tab exec  rofi -show window -fake-transparency -lines 10
+
+bindsym $mod+F7 exec /home/$USER/.config/command-center/commandcenter.sh
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -165,6 +167,10 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+#for_window [class="rofi"] border normal
+#for_window [class="discord"] border pixel 2
+#for_window [class="UXTerm"] border pixel 5
+
 bindsym $mod+r mode "resize"
 
 # Screencap
@@ -173,6 +179,9 @@ bindsym Print exec --no-startup-id "~/.config/i3/screenshot.sh"
 # Brightness!
 bindsym XF86MonBrightnessDown exec "~/.config/i3/brightness.sh down" 
 bindsym XF86MonBrightnessUp   exec "~/.config/i3/brightness.sh up" 
+
+# Display settings
+bindsym XF86Display exec "~/.config/i3/xrandr-autoconfig"
 
 # ALSA volume
 bindsym XF86AudioMute        exec "~/.config/i3/volume.sh mute"
@@ -186,26 +195,27 @@ bindsym XF86AudioNext exec "~/.config/i3/mediakey.sh next"
 bindsym XF86AudioPrev exec "~/.config/i3/mediakey.sh previous"
 bindsym $mod+F3 exec "~/.config/i3/mediakey.sh"
 
-# class                 border  bground text    indicator child_border
-client.focused          #992E2E #772525 #FFEDBB #F44242   #77512B
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #222222 #BC6C4A #292D2E   #222222
-client.urgent           #2F343A #E09B24 #FFFFFF #D10000   #D60000
-client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+# color-normal: "#191414, #ccc, #1c1c1c, #e35417, #191414";
 
-client.background       #545454
+# class                 border  bground text    indicator child_border
+client.focused          #99380f #e35417 #191414 #e35417   #77512B
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #4c3126 #99634c #191414 #292D2E   #222222
+client.urgent           #2F343A #E09B24 #FFFFFF #D10000   #D60000
+
 
 bar {
   font pango:UbuntuMono Bold 10
   status_command i3blocks
+  workspace_min_width 30
   colors {
     background #191414
     statusline #FFEEC5
     separator  #666666
 
-    focused_workspace  #4C7899 #285577 #FFEEB6
-    active_workspace   #333333 #222222 #FFFFFF
-    inactive_workspace #333333 #222222 #888888
+    focused_workspace  #99380f #e35417 #191414
+    active_workspace   #99380f #e35417 #191414
+    inactive_workspace #4c3126 #99634c #191414 
     urgent_workspace   #2F343A #900000 #FFFFFF
     binding_mode       #2F343A #900000 #FFFFFF
   }
