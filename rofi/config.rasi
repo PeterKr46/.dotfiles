@@ -53,7 +53,6 @@ configuration {
 /*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-/*	theme: "~/.config/rofi/themes/flat-orange.rasi; */
 /*	color-normal: "#191414, #ccc, #1c1c1c, #e35417, #191414";*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -142,4 +141,8 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
+    
 }
+
+@theme "~/.config/rofi/custom-theme.rasi"
+

@@ -35,5 +35,5 @@ xterm*color7:          #eeeeec
 xterm*selectToClipboard: true
 
 ! rofi color scheme
-rofi.color-normal: #191414, #c0c0c0, #1c1c1c, #e35417, #191414
-rofi.color-window: #191414, #191414, #e35417
+! rofi.color-normal: #191414, #c0c0c0, #1c1c1c, #e35417, #191414
+! rofi.color-window: #191414, #191414, #e35417
