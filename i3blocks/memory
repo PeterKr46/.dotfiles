@@ -1,0 +1,14 @@
+#!/bin/bash
+
+memory=$(free | sed -n 2p)
+memory_used=$(echo $memory | awk '{ print $3 }')
+memory_avail=$(echo $memory | awk '{ print $2 }')
+percentage=$(echo "($memory_used * 100) / $memory_avail" | bc)
+
+bgcolor="#364D38"
+color="#48AA54"
+if [[ $percentage -gt 40 ]]; then color="#3A7F85"; bgcolor="#243233"; fi
+if [[ $percentage -gt 70 ]]; then color="#DB995D"; bgcolor="#332B24"; fi
+if [[ $percentage -gt 90 ]]; then color="#BB3D37"; bgcolor="#332424"; fi
+
+printf "<span size='medium' bgcolor='$bgcolor' fgcolor='#ccc'>  RAM <tt>%s</tt></span>\n" "$(/home/$USER/.config/i3/pango_bar $memory_used 0 $memory_avail 11 "$percentage%" $color $bgcolor)"

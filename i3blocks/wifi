@@ -1,0 +1,26 @@
+#!/bin/bash
+
+if [[ -n $1 ]]; then 
+    ip=$(ip addr show dev wlp2s0 | grep "inet " | awk '{print $2}')
+    ip=$(echo "<small>$ip</small> ")
+fi
+
+ssid=$(nmcli connection show --active | sed 1,1d | head -1 |  grep -Po "^([^ ]+ )* ")
+
+quality=0
+if [[ -n $ssid ]]; then
+    quality=$(cat /proc/net/wireless | tail -1 | awk 'END {print $3}')
+    quality=${quality::-1}
+fi
+
+[[ -z $ssid ]] && ssid="   No WIFI   "
+
+width=$(echo "${#ssid}+5" | bc)
+
+bgcolor="#364D38"
+color="#48AA54"
+if [[ $quality -lt 65 ]]; then color="#3A7F85"; bgcolor="#243233"; fi
+if [[ $quality -lt 45 ]]; then color="#DB995D"; bgcolor="#332B24"; fi
+if [[ $quality -lt 30 ]]; then color="#BB3D37"; bgcolor="#332424"; fi
+
+printf "<tt><span bgcolor='$bgcolor'> %s%s</span></tt>\n" "$ip" "$(/home/$USER/.config/i3/pango_bar $quality 0 100 $width "$ssid" $color $bgcolor)"
