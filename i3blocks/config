@@ -24,104 +24,32 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/share/i3blocks/$BLOCK_NAME
-separator_block_width=15
+command=/home/$USER/.config/i3blocks/$BLOCK_NAME
+separator_block_width=0
+separator=false
 markup=pango
 
 # Generic media player support
-#
-# This displays "ARTIST - SONG" if a music is playing.
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-[playback-status]
+[mediaplayer]
 command=/home/$USER/.config/i3blocks/mediaplayer "${BLOCK_BUTTON}"
 interval=1
-separator=true
-separator_block_width=0
+full_text=mediaplayer
 
 [wifi]
 command=/home/$USER/.config/i3blocks/wifi "${BLOCK_BUTTON}" &
 interval=5
-separator_block_width=0
-
-#[wifi]
-##instance=wlp3s0
-#interval=10
-#separator=false
-#min_width=100
-#
-#[bandwidth]
-##instance=eth0
-#interval=5
-#min_width=100
-#separator=false
-
-[myram]
-full_text=RAM (Error)
-command=/home/$USER/.config/i3blocks/memory &
-interval=20
-separator=false
-separator_block_width=0
-
-#[mydisk]
-#full_text=Storage (Error)
-#command=/home/$USER/.config/i3blocks/storage &
-#interval=60
-#separator=false
-#separator_block_width=0
+full_text=WiFi status
 
 # Battery indicator
-#
-# The battery instance defaults to 0.
 [battery]
-command=/home/$USER/.config/i3blocks/battery &
-interval=30
+interval=10
 full_text=Battery
-separator=false
-separator_block_width=0
-
-#[load_average]
-#interval=10
-
 
 # Date Time
-#
 [time]
 command=printf '<span bgcolor="#223"><span weight="bold" size="large">   %s</span> <sup><span fgcolor="#ccc">%s</span></sup>  </span>\n' $(date '+%H:%M:%S %m.%d.%y')
 interval=1
-separator=false
-separator_block_width=0
 
-[dnd]
+[notifiy_toggle]
 command=/home/$USER/.config/i3blocks/donotdisturb "${BLOCK_BUTTON}" &
 interval=30
-
-# OpenVPN support
-#
-# Support multiple VPN, with colors.
-#[openvpn]
-#interval=20
-
-# Temperature
-#
-# Support multiple chips, though lm-sensors.
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
-
-# Key indicators
-#
-# Add the following bindings to i3 config file:
-#
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-#[keyindicator]
-#instance=CAPS
-#interval=once
-#signal=11
-
-#[keyindicator]
-#instance=NUM
-#interval=once
-#signal=11
