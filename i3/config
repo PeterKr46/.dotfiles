@@ -133,7 +133,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+l exec i3lock -i /home/peter/nextcloud/Pictures/Krita-Export/sleepykitty_cropped_scaled.png
+exec --no-startup-id nitrogen --set-zoom-fill /home/peter/Nextcloud/Pictures/Krita-Export/mountains_two_003.png &
+bindsym $mod+l exec i3lock -i /home/peter/nextcloud/Pictures/Krita-Export/mountains_two_003.png
 bindsym ctrl+$mod+l exec /home/peter/.config/i3/lock.sh
 
 bindsym $mod+period exec /home/peter/.config/emoji-picker/picker.sh
@@ -167,7 +168,10 @@ mode "resize" {
 #for_window [class="discord"] border pixel 2
 #for_window [class="UXTerm"] border pixel 5
 for_window [class="Spotify"] border pixel 1 
+for_window [class="jetbrains-clion"] border pixel 1
 for_window [class="Zathura"] border pixel 1
+for_window [class="PAdI"] border pixel 1
+for_window [class="jetbrains-idea"] border pixel 1
 
 bindsym $mod+r mode "resize"
 

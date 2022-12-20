@@ -1,11 +1,8 @@
 xterm*background: #1F1D1D
 xterm*foreground: #EDE0A5
 xterm*faceName: Ubuntu Mono:size=12
-! xterm*faceSize: 12
 
 ! Tango color palette
-! xterm*background:         #2e3436
-! xterm*foreground:         #eeeeec
 xterm*colorUL:          #8ae234
 xterm*underlineColor:   #92659a
 ! - Aluminium -
@@ -34,6 +31,3 @@ xterm*color15:           #d3d7cf
 xterm*color7:          #eeeeec
 xterm*selectToClipboard: true
 
-! rofi color scheme
-! rofi.color-normal: #191414, #c0c0c0, #1c1c1c, #e35417, #191414
-! rofi.color-window: #191414, #191414, #e35417

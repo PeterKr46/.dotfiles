@@ -47,7 +47,7 @@ full_text=Battery
 
 # Date Time
 [time]
-command=printf '<span bgcolor="#223"><span weight="bold" size="large">   %s</span> <sup><span fgcolor="#ccc">%s</span></sup>  </span>\n' $(date '+%H:%M:%S %m.%d.%y')
+command=printf '<span bgcolor="#223"><span weight="bold" size="large">   %s</span> <sup><span >%s</span></sup>  </span>\n' $(date '+%H:%M:%S %d.%m.%y')
 interval=1
 
 [notifiy_toggle]
