@@ -30,6 +30,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
   done
   unset f
 fi
-exec picom &
-exec dunst &
+exec dbus-launch --exit-with-session picom &
+exec dbus-launch --exit-with-session dunst &
+exec dbus-launch --exit-with-session openbox-session &
+exec dbus-launch --exit-with-session nextcloud &
 exec dbus-launch --exit-with-session i3

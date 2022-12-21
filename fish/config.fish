@@ -4,5 +4,6 @@ if status is-interactive
 end
 
 if status --is-login
+    and test (tty) = /dev/tty1
     exec startx
 end

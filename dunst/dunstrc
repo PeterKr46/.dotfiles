@@ -30,7 +30,7 @@
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
     #geometry = "300x5-30+20"
-    #geometry = "344x5-30+30"
+    geometry = "344x5-30+30"
     width = 344
 
     offset = 30x30

@@ -133,7 +133,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-exec --no-startup-id nitrogen --set-zoom-fill /home/peter/Nextcloud/Pictures/Krita-Export/mountains_two_003.png &
+exec --no-startup-id nitrogen --set-zoom-fill /home/peter/nextcloud/Pictures/Krita-Export/mountains_two_003.png &
 bindsym $mod+l exec i3lock -i /home/peter/nextcloud/Pictures/Krita-Export/mountains_two_003.png
 bindsym ctrl+$mod+l exec /home/peter/.config/i3/lock.sh
 
